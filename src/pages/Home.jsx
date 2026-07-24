@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Countdown from "../components/Countdown";
+import Highlights from "../components/Highlights";
 import "../styles/Home.css";
 
 function Home() {
@@ -33,7 +33,7 @@ function Home() {
             Κλήρωση: 2 Αυγούστου 2026
           </p>
 
-          <Countdown />
+          <Highlights />
 
           <Link to="/dora" className="prizes-link">
             <span>Δείτε τα Δώρα</span>
