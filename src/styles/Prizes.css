@@ -1,0 +1,385 @@
+* {
+  box-sizing: border-box;
+}
+
+.prizes-page {
+  min-height: 100vh;
+  padding-bottom: 60px;
+  color: white;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(28, 111, 225, 0.25),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #071b33 0%,
+      #06111f 48%,
+      #040a12 100%
+    );
+}
+
+.prizes-header {
+  display: flex;
+  width: min(1180px, calc(100% - 32px));
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-link {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.back-link:hover {
+  color: white;
+  transform: translateX(-4px);
+}
+
+.prizes-logo {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter:
+    contrast(1.1)
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+}
+
+.header-space {
+  width: 60px;
+}
+
+.prizes-intro {
+  width: min(850px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 78px 0 50px;
+  text-align: center;
+  animation: introAppear 0.8s ease both;
+}
+
+.prizes-kicker {
+  margin-bottom: 14px;
+  color: #7dbbff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.prizes-intro h1 {
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.prizes-description {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.draw-badge {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 11px 18px;
+  border: 1px solid rgba(125, 187, 255, 0.28);
+  border-radius: 999px;
+  color: #b9dcff;
+  background: rgba(10, 37, 70, 0.6);
+  font-size: 0.82rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.prizes-grid {
+  display: grid;
+  width: min(1180px, calc(100% - 32px));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0 auto;
+}
+
+.prize-card {
+  position: relative;
+  display: grid;
+  min-height: 220px;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 20px;
+  overflow: hidden;
+  padding: 26px;
+  border: 1px solid rgba(125, 187, 255, 0.14);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 52, 91, 0.86),
+      rgba(6, 21, 38, 0.88)
+    );
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.28),
+    inset 0 1px rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translateY(32px);
+  animation: cardAppear 0.75s var(--delay) ease forwards;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.prize-card::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -110px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(20, 119, 255, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.prize-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(125, 187, 255, 0.36);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.36),
+    0 0 28px rgba(20, 119, 255, 0.1);
+}
+
+.prize-card:hover::after {
+  transform: scale(1.2);
+}
+
+.prize-number {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 2.7rem;
+  font-weight: 900;
+}
+
+.prize-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  border: 1px solid rgba(125, 187, 255, 0.22);
+  border-radius: 18px;
+  color: #a9d4ff;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(21, 126, 244, 0.24),
+      rgba(7, 47, 91, 0.18)
+    );
+  font-size: 1.6rem;
+}
+
+.prize-main {
+  position: relative;
+  z-index: 2;
+}
+
+.prize-category {
+  margin-bottom: 7px;
+  color: #79b8fa;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.prize-main h2 {
+  padding-right: 40px;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  line-height: 1.2;
+}
+
+.sponsor {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 18px;
+}
+
+.sponsor span {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sponsor strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+}
+
+.winners {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: 9px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.winner-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2f8df1;
+  box-shadow: 0 0 12px rgba(47, 141, 241, 0.8);
+}
+
+.winners p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.prizes-footer-card {
+  display: flex;
+  width: min(900px, calc(100% - 32px));
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 80px auto 0;
+  padding: 34px;
+  border: 1px solid rgba(125, 187, 255, 0.16);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 62, 117, 0.62),
+      rgba(5, 20, 37, 0.74)
+    );
+}
+
+.footer-logo {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.4));
+}
+
+.prizes-footer-card p {
+  color: #81c0ff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.prizes-footer-card h2 {
+  margin: 6px 0;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+.prizes-footer-card span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.9rem;
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 850px) {
+  .prizes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .prizes-header {
+    width: calc(100% - 24px);
+  }
+
+  .prizes-logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .prizes-intro {
+    width: calc(100% - 24px);
+    padding: 58px 0 38px;
+  }
+
+  .prizes-grid {
+    width: calc(100% - 24px);
+    gap: 14px;
+  }
+
+  .prize-card {
+    min-height: 205px;
+    padding: 21px;
+    gap: 15px;
+  }
+
+  .prize-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+  }
+
+  .prize-main h2 {
+    font-size: 1.25rem;
+  }
+
+  .prizes-footer-card {
+    width: calc(100% - 24px);
+    flex-direction: column;
+    margin-top: 55px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prizes-intro,
+  .prize-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
