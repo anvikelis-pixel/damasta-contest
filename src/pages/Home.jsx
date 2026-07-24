@@ -1,37 +1,47 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Countdown from "../components/Countdown";
 import "../styles/Home.css";
 
 function Home() {
   return (
-    <main className="home-page">
-      <div className="field-background" />
-      <div className="field-overlay" />
+    <>
+      <Navbar />
 
-      <section className="hero-content">
-        <img
-          src="/images/damasta-logo.png"
-          alt="Αθλητικός Όμιλος Δαμάστας"
-          className="damasta-logo"
-        />
+      <main className="home-page">
+        <div className="field-background" />
+        <div className="field-overlay" />
 
-        <p className="club-name">Αθλητικός Όμιλος Δαμάστας</p>
+        <section className="hero-content">
+          <img
+            src="/images/damasta-logo.png"
+            alt="Αθλητικός Όμιλος Δαμάστας"
+            className="damasta-logo"
+          />
 
-        <h1>ΔΑΜΑΣΤΑ</h1>
+          <p className="club-name">
+            Αθλητικός Όμιλος Δαμάστας
+          </p>
 
-        <p className="raffle-title">
-          Μεγάλη Λαχειοφόρος Αγορά
-        </p>
+          <h1>ΔΑΜΑΣΤΑ</h1>
 
-        <p className="raffle-date">
-          Κλήρωση: 2 Αυγούστου 2026
-        </p>
+          <p className="raffle-title">
+            Μεγάλη Λαχειοφόρος Αγορά
+          </p>
 
-        <Link to="/dora" className="prizes-link">
-          <span>Δείτε τα Δώρα</span>
-          <span className="arrow">→</span>
-        </Link>
-      </section>
-    </main>
+          <p className="raffle-date">
+            Κλήρωση: 2 Αυγούστου 2026
+          </p>
+
+          <Countdown />
+
+          <Link to="/dora" className="prizes-link">
+            <span>Δείτε τα Δώρα</span>
+            <span className="arrow">→</span>
+          </Link>
+        </section>
+      </main>
+    </>
   );
 }
 

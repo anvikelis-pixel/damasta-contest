@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import "../styles/Prizes.css";
 
 const prizes = [
@@ -86,78 +87,93 @@ const prizes = [
 
 function Prizes() {
   return (
-    <main className="prizes-page">
-      <header className="prizes-header">
-        <Link to="/" className="back-link">
-          ← Αρχική
-        </Link>
+    <>
+      <Navbar />
 
-        <img
-          src="/images/damasta-logo.png"
-          alt="Α.Ο. Δαμάστας"
-          className="prizes-logo"
-        />
+      <main className="prizes-page">
+        <header className="prizes-header">
+          <Link to="/" className="back-link">
+            ← Αρχική
+          </Link>
 
-        <div className="header-space" />
-      </header>
+          <img
+            src="/images/damasta-logo.png"
+            alt="Α.Ο. Δαμάστας"
+            className="prizes-logo"
+          />
 
-      <section className="prizes-intro">
-        <p className="prizes-kicker">Μεγάλη Λαχειοφόρος Αγορά</p>
+          <div className="header-space" />
+        </header>
 
-        <h1>Τα Δώρα</h1>
+        <section className="prizes-intro">
+          <p className="prizes-kicker">
+            Μεγάλη Λαχειοφόρος Αγορά
+          </p>
 
-        <p className="prizes-description">
-          Πολλά δώρα για πολλούς διαφορετικούς τυχερούς.
-        </p>
+          <h1>Τα Δώρα</h1>
 
-        <div className="draw-badge">
-          Κλήρωση · 2 Αυγούστου 2026
-        </div>
-      </section>
+          <p className="prizes-description">
+            Πολλά δώρα για πολλούς διαφορετικούς τυχερούς.
+          </p>
 
-      <section className="prizes-grid">
-        {prizes.map((prize, index) => (
-          <article
-            className="prize-card"
-            key={prize.number}
-            style={{ "--delay": `${index * 0.08}s` }}
-          >
-            <span className="prize-number">{prize.number}</span>
+          <div className="draw-badge">
+            Κλήρωση · 2 Αυγούστου 2026
+          </div>
+        </section>
 
-            <div className="prize-icon">{prize.icon}</div>
+        <section className="prizes-grid">
+          {prizes.map((prize, index) => (
+            <article
+              className="prize-card"
+              key={prize.number}
+              style={{ "--delay": `${index * 0.08}s` }}
+            >
+              <span className="prize-number">
+                {prize.number}
+              </span>
 
-            <div className="prize-main">
-              <p className="prize-category">{prize.category}</p>
-              <h2>{prize.title}</h2>
-
-              <div className="sponsor">
-                <span>Προσφορά</span>
-                <strong>{prize.sponsor}</strong>
+              <div className="prize-icon">
+                {prize.icon}
               </div>
-            </div>
 
-            <div className="winners">
-              <span className="winner-dot" />
-              <p>{prize.winners}</p>
-            </div>
-          </article>
-        ))}
-      </section>
+              <div className="prize-main">
+                <p className="prize-category">
+                  {prize.category}
+                </p>
 
-      <section className="prizes-footer-card">
-        <img
-          src="/images/damasta-logo.png"
-          alt=""
-          className="footer-logo"
-        />
+                <h2>{prize.title}</h2>
 
-        <div>
-          <p>Αθλητικός Όμιλος Δαμάστας</p>
-          <h2>Καλή επιτυχία σε όλους!</h2>
-          <span>Σας ευχαριστούμε για τη στήριξή σας.</span>
-        </div>
-      </section>
-    </main>
+                <div className="sponsor">
+                  <span>Προσφορά</span>
+                  <strong>{prize.sponsor}</strong>
+                </div>
+              </div>
+
+              <div className="winners">
+                <span className="winner-dot" />
+                <p>{prize.winners}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="prizes-footer-card">
+          <img
+            src="/images/damasta-logo.png"
+            alt=""
+            className="footer-logo"
+          />
+
+          <div>
+            <p>Αθλητικός Όμιλος Δαμάστας</p>
+            <h2>Καλή επιτυχία σε όλους!</h2>
+            <span>
+              Σας ευχαριστούμε για τη στήριξή σας.
+            </span>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
 

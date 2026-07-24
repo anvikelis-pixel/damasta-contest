@@ -1,0 +1,247 @@
+.navbar {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 1000;
+
+  display: flex;
+  width: min(1180px, calc(100% - 36px));
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 12px 10px 18px;
+
+  transform: translateX(-50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 18px;
+
+  background: rgba(4, 17, 39, 0.58);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  animation: navbarEntrance 0.8s ease both;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter:
+    contrast(1.15)
+    drop-shadow(0 7px 10px rgba(0, 0, 0, 0.4));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-text strong {
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.brand-text span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-menu > a {
+  position: relative;
+  padding: 13px 16px;
+  border-radius: 11px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.navbar-menu > a:not(.navbar-action):hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.navbar-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 5px;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #1684f4, #0754b7);
+  box-shadow:
+    0 10px 25px rgba(0, 86, 196, 0.34),
+    inset 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.navbar-action:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2792ff, #0861d0);
+}
+
+.navbar-action span {
+  font-size: 1.15rem;
+  transition: transform 0.25s ease;
+}
+
+.navbar-action:hover span {
+  transform: translateX(4px);
+}
+
+.menu-button {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 19px;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffffff;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.menu-button-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-button-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@keyframes navbarEntrance {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    top: 12px;
+    width: calc(100% - 24px);
+    min-height: 64px;
+    padding: 8px 9px 8px 14px;
+    border-radius: 16px;
+  }
+
+  .navbar-brand img {
+    width: 43px;
+    height: 43px;
+  }
+
+  .brand-text strong {
+    font-size: 0.84rem;
+  }
+
+  .brand-text span {
+    font-size: 0.54rem;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+
+    background: rgba(4, 17, 39, 0.94);
+
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .navbar-menu-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navbar-menu > a {
+    width: 100%;
+    padding: 14px 15px;
+  }
+
+  .navbar-action {
+    justify-content: space-between;
+    margin-left: 0;
+    margin-top: 3px;
+  }
+}
