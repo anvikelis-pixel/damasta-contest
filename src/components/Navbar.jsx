@@ -16,11 +16,6 @@ function Navbar() {
           src="/images/damasta-logo.png"
           alt="Α.Ο. Δαμάστας"
         />
-
-        <div className="brand-text">
-          <strong>ΔΑΜΑΣΤΑ</strong>
-          <span>Α.Ο. 1983</span>
-        </div>
       </Link>
 
       <button
@@ -49,7 +44,7 @@ function Navbar() {
           className="navbar-action"
           onClick={closeMenu}
         >
-          Δείτε τα δώρα
+          Δείτε τα Δώρα
           <span>→</span>
         </Link>
       </div>
