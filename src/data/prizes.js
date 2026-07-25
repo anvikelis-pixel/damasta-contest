@@ -38,7 +38,7 @@ const prizes = [
     estimatedValue: 70,
 
     icon: null,
-    image: "/images/kompologades-logo.jpg",
+    image: "/images/kompologades-logo.png",
   },
 
   {
@@ -51,7 +51,7 @@ const prizes = [
     estimatedValue: 60,
 
     icon: null,
-    image: "/images/kompologades-logo.jpg",
+    image: "/images/kompologades-logo.png",
   },
 
   {
