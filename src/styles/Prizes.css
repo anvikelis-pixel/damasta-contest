@@ -51,12 +51,19 @@
 .prizes-logo {
   width: 68px;
   height: 68px;
+  padding: 4px;
   object-fit: contain;
-  mix-blend-mode: multiply;
+
+  background: #ffffff;
+  border-radius: 3px;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
 
   filter:
-    contrast(1.1)
-    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+    contrast(1.05)
+    saturate(1.05);
 }
 
 .header-space {
@@ -118,16 +125,18 @@
   display: grid;
   width: min(1180px, calc(100% - 32px));
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 260px;
   gap: 18px;
   margin: 0 auto;
 }
 
 .prize-card {
   position: relative;
+
   display: grid;
-  min-height: 220px;
+  height: 260px;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 20px;
 
   overflow: hidden;
@@ -205,6 +214,8 @@
   height: 62px;
   place-items: center;
 
+  overflow: hidden;
+
   border: 1px solid rgba(125, 187, 255, 0.22);
   border-radius: 18px;
 
@@ -220,9 +231,31 @@
   font-size: 1.6rem;
 }
 
+.prize-icon-image {
+  width: 104px;
+  height: 62px;
+  padding: 5px;
+
+  background: #ffffff;
+}
+
+.prize-icon-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  border-radius: 11px;
+}
+
 .prize-main {
   position: relative;
   z-index: 2;
+
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .prize-category {
@@ -237,7 +270,12 @@
 }
 
 .prize-main h2 {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+
   padding-right: 40px;
+
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   line-height: 1.2;
 }
@@ -246,7 +284,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  margin-top: 18px;
+  margin-top: auto;
 }
 
 .sponsor span {
@@ -271,7 +309,9 @@
   align-items: center;
   gap: 9px;
 
+  min-height: 38px;
   padding-top: 17px;
+
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -315,12 +355,19 @@
 .footer-logo {
   width: 105px;
   height: 105px;
+  padding: 6px;
   object-fit: contain;
-  mix-blend-mode: multiply;
+
+  background: #ffffff;
+  border-radius: 4px;
+
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
 
   filter:
-    contrast(1.1)
-    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.4));
+    contrast(1.05)
+    saturate(1.05);
 }
 
 .prizes-footer-card p {
@@ -363,6 +410,11 @@
 @media (max-width: 850px) {
   .prizes-grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+  }
+
+  .prize-card {
+    height: 250px;
   }
 }
 
@@ -378,6 +430,7 @@
   .prizes-logo {
     width: 55px;
     height: 55px;
+    padding: 3px;
   }
 
   .prizes-intro {
@@ -387,11 +440,13 @@
 
   .prizes-grid {
     width: calc(100% - 24px);
+    grid-auto-rows: auto;
     gap: 14px;
   }
 
   .prize-card {
-    min-height: 205px;
+    height: auto;
+    min-height: 235px;
     padding: 21px;
     gap: 15px;
   }
@@ -402,7 +457,14 @@
     border-radius: 15px;
   }
 
+  .prize-icon-image {
+    width: 92px;
+    height: 54px;
+    padding: 4px;
+  }
+
   .prize-main h2 {
+    min-height: 62px;
     font-size: 1.25rem;
   }
 
@@ -417,6 +479,7 @@
   .footer-logo {
     width: 88px;
     height: 88px;
+    padding: 5px;
   }
 }
 

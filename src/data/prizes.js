@@ -7,7 +7,8 @@ const prizes = [
     winners: 20,
     quantity: 20,
 
-    // Κρυφή εκτιμώμενη συνολική αξία για ταξινόμηση.
+    // Χρησιμοποιείται μόνο για την αυτόματη ταξινόμηση.
+    // Δεν εμφανίζεται στον επισκέπτη.
     estimatedValue: 500,
 
     icon: "✦",
@@ -22,6 +23,7 @@ const prizes = [
     winners: 4,
     quantity: 4,
     estimatedValue: 140,
+
     icon: "👜",
     image: null,
   },
@@ -34,8 +36,9 @@ const prizes = [
     winners: 7,
     quantity: 7,
     estimatedValue: 70,
-    icon: "🧿",
-    image: null,
+
+    icon: null,
+    image: "/images/kompologades-logo.jpg",
   },
 
   {
@@ -46,8 +49,9 @@ const prizes = [
     winners: 3,
     quantity: 3,
     estimatedValue: 60,
-    icon: "📿",
-    image: null,
+
+    icon: null,
+    image: "/images/kompologades-logo.jpg",
   },
 
   {
@@ -58,6 +62,7 @@ const prizes = [
     winners: 5,
     quantity: 5,
     estimatedValue: 50,
+
     icon: "🍯",
     image: null,
   },
@@ -70,6 +75,7 @@ const prizes = [
     winners: 1,
     quantity: 1,
     estimatedValue: 45,
+
     icon: "🔊",
     image: null,
   },
@@ -85,8 +91,8 @@ const prizes = [
     // 2 × 10€ και 1 × 20€.
     estimatedValue: 40,
 
-    icon: "€",
-    image: null,
+    icon: null,
+    image: "/images/rebekka-logo.png",
   },
 
   {
@@ -97,6 +103,7 @@ const prizes = [
     winners: 2,
     quantity: 2,
     estimatedValue: 40,
+
     icon: "🌿",
     image: null,
   },
@@ -109,8 +116,9 @@ const prizes = [
     winners: 2,
     quantity: 2,
     estimatedValue: 28,
-    icon: "✂️",
-    image: null,
+
+    icon: null,
+    image: "/images/wisp-logo.png",
   },
 
   {
@@ -121,6 +129,7 @@ const prizes = [
     winners: 1,
     quantity: 1,
     estimatedValue: 28,
+
     icon: "🎒",
     image: null,
   },
@@ -133,6 +142,7 @@ const prizes = [
     winners: 1,
     quantity: 1,
     estimatedValue: 22,
+
     icon: "🌾",
     image: null,
   },
@@ -145,6 +155,7 @@ const prizes = [
     winners: 1,
     quantity: 1,
     estimatedValue: 18,
+
     icon: "📖",
     image: null,
   },
@@ -157,6 +168,7 @@ const prizes = [
     winners: 2,
     quantity: 2,
     estimatedValue: 5,
+
     icon: "🥛",
     image: null,
   },
@@ -169,6 +181,7 @@ const prizes = [
     winners: 2,
     quantity: 2,
     estimatedValue: 5,
+
     icon: "🥛",
     image: null,
   },
