@@ -55,8 +55,20 @@ function Prizes() {
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <div className="prize-icon">
-                {prize.icon}
+              <div
+                className={`prize-icon ${
+                  prize.image ? "prize-icon-image" : ""
+                }`}
+              >
+                {prize.image ? (
+                  <img
+                    src={prize.image}
+                    alt={`Λογότυπο ${prize.sponsor}`}
+                    loading="lazy"
+                  />
+                ) : (
+                  prize.icon
+                )}
               </div>
 
               <div className="prize-main">
@@ -88,15 +100,19 @@ function Prizes() {
         <section className="prizes-footer-card">
           <img
             src="/images/damasta-logo.png"
-            alt=""
+            alt="Α.Ο. Δαμάστας"
             className="footer-logo"
           />
 
           <div>
             <p>Αθλητικός Όμιλος Δαμάστας</p>
-            <h2>Καλή επιτυχία σε όλους!</h2>
+
+            <h2>
+              Ευχαριστούμε όλους τους χορηγούς
+            </h2>
+
             <span>
-              Σας ευχαριστούμε για τη στήριξή σας.
+              που στηρίζουν τον Α.Ο. Δαμάστας.
             </span>
           </div>
         </section>
