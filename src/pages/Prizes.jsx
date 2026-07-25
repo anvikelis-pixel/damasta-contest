@@ -1,91 +1,14 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import prizes from "../data/prizes";
 import "../styles/Prizes.css";
 
-const prizes = [
-  {
-    number: "01",
-    sponsor: "ΜΕΝΙΑ",
-    category: "Κοσμήματα",
-    title: "20 κοσμήματα",
-    winners: "20 διαφορετικοί τυχεροί",
-    icon: "✦",
-  },
-  {
-    number: "02",
-    sponsor: "ΔΥΟ ΒΗΤΑ",
-    category: "Βιβλιοπωλείο",
-    title: "1 βιβλίο",
-    winners: "1 τυχερός",
-    icon: "▤",
-  },
-  {
-    number: "03",
-    sponsor: "ΣΠΥΡΟΓΙΑΝΝΗΣ",
-    category: "Παραδοσιακά προϊόντα",
-    title: "5 μέλια",
-    winners: "5 διαφορετικοί τυχεροί",
-    icon: "⬡",
-  },
-  {
-    number: "04",
-    sponsor: "ΜΑΝΙΟΡΟΣ ΙΩΑΝΝΗΣ",
-    category: "Ηλεκτρονικά",
-    title: "1 ηχείο",
-    winners: "1 τυχερός",
-    icon: "◉",
-  },
-  {
-    number: "05",
-    sponsor: "ΕΒΑΠΟΡΕ",
-    category: "Προϊόντα γάλακτος",
-    title: "2 γάλατα",
-    winners: "2 διαφορετικοί τυχεροί",
-    icon: "◇",
-  },
-  {
-    number: "06",
-    sponsor: "KID ΝΤΡΕΤΟΣ",
-    category: "Προϊόντα γάλακτος",
-    title: "2 γάλατα",
-    winners: "2 διαφορετικοί τυχεροί",
-    icon: "◇",
-  },
-  {
-    number: "07",
-    sponsor: "ΓΕΩΠΟΝΙΚΗ ΜΥΛΟΠΟΤΑΜΟΥ",
-    category: "Γεωπονικά προϊόντα",
-    title: "2 δώρα",
-    winners: "2 διαφορετικοί τυχεροί",
-    icon: "❋",
-  },
-  {
-    number: "08",
-    sponsor: "ΑΡΗΣ",
-    category: "Τρόφιμα",
-    title: "1 τσουβάλι αλεύρι 25 κιλών",
-    winners: "1 τυχερός",
-    icon: "♢",
-  },
-  {
-    number: "09",
-    sponsor: "REBEKKA STORE",
-    category: "Δωροεπιταγές",
-    title: "3 δωροεπιταγές",
-    winners: "2 × 10€ και 1 × 20€",
-    icon: "€",
-  },
-  {
-    number: "10",
-    sponsor: "WISP",
-    category: "Κουρείο",
-    title: "2 κουρέματα",
-    winners: "2 διαφορετικοί τυχεροί",
-    icon: "✂",
-  },
-];
-
 function Prizes() {
+  const sortedPrizes = [...prizes].sort(
+    (firstPrize, secondPrize) =>
+      secondPrize.estimatedValue - firstPrize.estimatedValue
+  );
+
   return (
     <>
       <Navbar />
@@ -122,14 +45,14 @@ function Prizes() {
         </section>
 
         <section className="prizes-grid">
-          {prizes.map((prize, index) => (
+          {sortedPrizes.map((prize, index) => (
             <article
               className="prize-card"
-              key={prize.number}
+              key={prize.id}
               style={{ "--delay": `${index * 0.08}s` }}
             >
               <span className="prize-number">
-                {prize.number}
+                {String(index + 1).padStart(2, "0")}
               </span>
 
               <div className="prize-icon">
@@ -151,7 +74,12 @@ function Prizes() {
 
               <div className="winners">
                 <span className="winner-dot" />
-                <p>{prize.winners}</p>
+
+                <p>
+                  {prize.winners === 1
+                    ? "1 τυχερός"
+                    : `${prize.winners} διαφορετικοί τυχεροί`}
+                </p>
               </div>
             </article>
           ))}
