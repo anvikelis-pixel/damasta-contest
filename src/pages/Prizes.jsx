@@ -3,11 +3,110 @@ import Navbar from "../components/Navbar";
 import prizes from "../data/prizes";
 import "../styles/Prizes.css";
 
+const individualPrizeDetails = {
+  1: {
+    title: "Κόσμημα",
+    gender: "neutral",
+  },
+  2: {
+    title: "Χειροποίητη Τσάντα",
+    gender: "feminine",
+  },
+  3: {
+    title: "Χειροποίητο Μπεγλέρι",
+    gender: "neutral",
+  },
+  4: {
+    title: "Χειροποίητο Κομπολόι",
+    gender: "neutral",
+  },
+  5: {
+    title: "Μέλι",
+    gender: "neutral",
+  },
+  6: {
+    title: "Ηχείο",
+    gender: "neutral",
+  },
+  7: {
+    title: "Δωροεπιταγή",
+    gender: "feminine",
+  },
+  8: {
+    title: "Δώρο",
+    gender: "neutral",
+  },
+  9: {
+    title: "Κούρεμα",
+    gender: "neutral",
+  },
+  10: {
+    title: "Χειροποίητο Τσαντάκι",
+    gender: "neutral",
+  },
+  11: {
+    title: "Τσουβάλι Αλεύρι 25 κιλών",
+    gender: "neutral",
+  },
+  12: {
+    title: "Βιβλίο",
+    gender: "neutral",
+  },
+  13: {
+    title: "Γάλα Εβαπορέ",
+    gender: "neutral",
+  },
+  14: {
+    title: "Γάλα",
+    gender: "neutral",
+  },
+};
+
+function getOrdinal(number, gender) {
+  if (gender === "feminine") {
+    return `${number}η`;
+  }
+
+  return `${number}ο`;
+}
+
+function createIndividualPrizes() {
+  return prizes
+    .flatMap((prize) => {
+      const details = individualPrizeDetails[prize.id];
+
+      return Array.from(
+        { length: prize.quantity },
+        (_, itemIndex) => {
+          const itemNumber = itemIndex + 1;
+
+          return {
+            ...prize,
+
+            uniqueId: `${prize.id}-${itemNumber}`,
+
+            individualTitle: details
+              ? `${getOrdinal(
+                  itemNumber,
+                  details.gender
+                )} ${details.title}`
+              : `${itemNumber}ο ${prize.title}`,
+
+            individualValue:
+              prize.estimatedValue / prize.quantity,
+          };
+        }
+      );
+    })
+    .sort(
+      (firstPrize, secondPrize) =>
+        secondPrize.individualValue -
+        firstPrize.individualValue
+    );
+}
+
 function Prizes() {
-  const sortedPrizes = [...prizes].sort(
-    (firstPrize, secondPrize) =>
-      secondPrize.estimatedValue - firstPrize.estimatedValue
-  );
+  const individualPrizes = createIndividualPrizes();
 
   return (
     <>
@@ -36,7 +135,8 @@ function Prizes() {
           <h1>Τα Δώρα</h1>
 
           <p className="prizes-description">
-            Πολλά δώρα για πολλούς διαφορετικούς τυχερούς.
+            Κάθε δώρο παρουσιάζεται ξεχωριστά για
+            κάθε τυχερό της κλήρωσης.
           </p>
 
           <div className="draw-badge">
@@ -45,11 +145,16 @@ function Prizes() {
         </section>
 
         <section className="prizes-grid">
-          {sortedPrizes.map((prize, index) => (
+          {individualPrizes.map((prize, index) => (
             <article
               className="prize-card"
-              key={prize.id}
-              style={{ "--delay": `${index * 0.08}s` }}
+              key={prize.uniqueId}
+              style={{
+                "--delay": `${Math.min(
+                  index * 0.025,
+                  0.8
+                )}s`,
+              }}
             >
               <span className="prize-number">
                 {String(index + 1).padStart(2, "0")}
@@ -57,7 +162,9 @@ function Prizes() {
 
               <div
                 className={`prize-icon ${
-                  prize.image ? "prize-icon-image" : ""
+                  prize.image
+                    ? "prize-icon-image"
+                    : ""
                 }`}
               >
                 {prize.image ? (
@@ -65,6 +172,7 @@ function Prizes() {
                     src={prize.image}
                     alt={`Λογότυπο ${prize.sponsor}`}
                     loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   prize.icon
@@ -76,7 +184,7 @@ function Prizes() {
                   {prize.category}
                 </p>
 
-                <h2>{prize.title}</h2>
+                <h2>{prize.individualTitle}</h2>
 
                 <div className="sponsor">
                   <span>Προσφορά</span>
@@ -87,11 +195,7 @@ function Prizes() {
               <div className="winners">
                 <span className="winner-dot" />
 
-                <p>
-                  {prize.winners === 1
-                    ? "1 τυχερός"
-                    : `${prize.winners} διαφορετικοί τυχεροί`}
-                </p>
+                <p>1 τυχερός</p>
               </div>
             </article>
           ))}
