@@ -3,99 +3,41 @@ import Navbar from "../components/Navbar";
 import prizes from "../data/prizes";
 import "../styles/Prizes.css";
 
-const individualPrizeDetails = {
-  1: {
-    title: "Κόσμημα",
-    gender: "neutral",
-  },
-  2: {
-    title: "Χειροποίητη Τσάντα",
-    gender: "feminine",
-  },
-  3: {
-    title: "Χειροποίητο Μπεγλέρι",
-    gender: "neutral",
-  },
-  4: {
-    title: "Χειροποίητο Κομπολόι",
-    gender: "neutral",
-  },
-  5: {
-    title: "Μέλι",
-    gender: "neutral",
-  },
-  6: {
-    title: "Ηχείο",
-    gender: "neutral",
-  },
-  7: {
-    title: "Δωροεπιταγή",
-    gender: "feminine",
-  },
-  8: {
-    title: "Δώρο",
-    gender: "neutral",
-  },
-  9: {
-    title: "Κούρεμα",
-    gender: "neutral",
-  },
-  10: {
-    title: "Χειροποίητο Τσαντάκι",
-    gender: "neutral",
-  },
-  11: {
-    title: "Τσουβάλι Αλεύρι 25 κιλών",
-    gender: "neutral",
-  },
-  12: {
-    title: "Βιβλίο",
-    gender: "neutral",
-  },
-  13: {
-    title: "Γάλα Εβαπορέ",
-    gender: "neutral",
-  },
-  14: {
-    title: "Γάλα",
-    gender: "neutral",
-  },
+const individualPrizeTitles = {
+  1: "Κόσμημα",
+  2: "Χειροποίητη Τσάντα",
+  3: "Χειροποίητο Μπεγλέρι",
+  4: "Χειροποίητο Κομπολόι",
+  5: "Μέλι",
+  6: "Ηχείο",
+  7: "Δωροεπιταγή",
+  8: "Δώρο",
+  9: "Κούρεμα",
+  10: "Χειροποίητο Τσαντάκι",
+  11: "Τσουβάλι Αλεύρι 25 κιλών",
+  12: "Βιβλίο",
+  13: "Γάλα Εβαπορέ",
+  14: "Γάλα",
 };
-
-function getOrdinal(number, gender) {
-  if (gender === "feminine") {
-    return `${number}η`;
-  }
-
-  return `${number}ο`;
-}
 
 function createIndividualPrizes() {
   return prizes
     .flatMap((prize) => {
-      const details = individualPrizeDetails[prize.id];
+      const singularTitle =
+        individualPrizeTitles[prize.id] || prize.title;
 
       return Array.from(
         { length: prize.quantity },
-        (_, itemIndex) => {
-          const itemNumber = itemIndex + 1;
+        (_, itemIndex) => ({
+          ...prize,
 
-          return {
-            ...prize,
+          uniqueId: `${prize.id}-${itemIndex + 1}`,
 
-            uniqueId: `${prize.id}-${itemNumber}`,
+          individualTitle: `1 ${singularTitle}`,
 
-            individualTitle: details
-              ? `${getOrdinal(
-                  itemNumber,
-                  details.gender
-                )} ${details.title}`
-              : `${itemNumber}ο ${prize.title}`,
-
-            individualValue:
-              prize.estimatedValue / prize.quantity,
-          };
-        }
+          individualValue:
+            prize.estimatedValue / prize.quantity,
+        })
       );
     })
     .sort(
@@ -194,7 +136,6 @@ function Prizes() {
 
               <div className="winners">
                 <span className="winner-dot" />
-
                 <p>1 τυχερός</p>
               </div>
             </article>

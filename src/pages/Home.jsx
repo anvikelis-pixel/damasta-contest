@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Highlights from "../components/Highlights";
 import "../styles/Home.css";
 
 function Home() {
@@ -32,8 +31,6 @@ function Home() {
           <p className="raffle-date">
             Κλήρωση: 2 Αυγούστου 2026
           </p>
-
-          <Highlights />
 
           <Link to="/dora" className="prizes-link">
             <span>Δείτε τα Δώρα</span>
