@@ -29,7 +29,7 @@ function Home() {
           </p>
 
           <p className="raffle-date">
-            Κλήρωση: 2 Αυγούστου 2026
+            2 Αυγούστου 2026
           </p>
 
           <Link to="/dora" className="prizes-link">
