@@ -199,15 +199,15 @@
   top: 11px;
   right: 14px;
 
-  color: rgba(170, 205, 255, 0.22);
+  color: rgba(255, 255, 255, 0.62);
 
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: -0.04em;
 
   text-shadow:
-    0 0 8px rgba(45, 130, 255, 0.18),
-    0 0 18px rgba(45, 130, 255, 0.1);
+    0 0 10px rgba(120, 190, 255, 0.55),
+    0 0 24px rgba(120, 190, 255, 0.35);
 }
 
 .prize-icon {
@@ -498,14 +498,15 @@
     top: 6px;
     right: 8px;
 
-    color: rgba(170, 205, 255, 0.26);
+    color: rgba(255, 255, 255, 0.72);
 
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-weight: 900;
     letter-spacing: -0.04em;
 
     text-shadow:
-      0 0 6px rgba(45, 130, 255, 0.2);
+      0 0 8px rgba(120, 190, 255, 0.55),
+      0 0 18px rgba(120, 190, 255, 0.35);
   }
 
   .prize-icon {
