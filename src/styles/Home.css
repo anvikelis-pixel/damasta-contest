@@ -80,55 +80,24 @@ body {
 .damasta-logo {
   width: clamp(170px, 19vw, 270px);
   max-height: 290px;
-  padding: 5px;
 
   object-fit: contain;
 
-  opacity: 0.92;
-
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 16px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.91),
-      rgba(224, 238, 255, 0.82)
-    );
-
-  box-shadow:
-    0 22px 42px rgba(0, 0, 0, 0.34),
-    0 0 34px rgba(28, 111, 225, 0.22),
-    inset 0 1px rgba(255, 255, 255, 0.72);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
   filter:
-    contrast(1.08)
-    saturate(1.12)
-    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.28));
+    drop-shadow(0 18px 25px rgba(0, 0, 0, 0.48))
+    drop-shadow(0 0 22px rgba(20, 100, 220, 0.24));
 
   animation: logoFloat 5s ease-in-out infinite;
 
   transition:
-    opacity 0.3s ease,
-    filter 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .damasta-logo:hover {
-  opacity: 0.98;
-
   filter:
-    contrast(1.1)
-    saturate(1.16)
-    drop-shadow(0 13px 17px rgba(0, 0, 0, 0.32));
-
-  box-shadow:
-    0 26px 50px rgba(0, 0, 0, 0.38),
-    0 0 42px rgba(28, 111, 225, 0.3),
-    inset 0 1px rgba(255, 255, 255, 0.8);
+    drop-shadow(0 22px 30px rgba(0, 0, 0, 0.52))
+    drop-shadow(0 0 28px rgba(20, 100, 220, 0.32));
 }
 
 .club-name {
@@ -285,16 +254,10 @@ body {
 
   .damasta-logo {
     width: 185px;
-    padding: 4px;
 
-    border-radius: 13px;
-
-    opacity: 0.93;
-
-    box-shadow:
-      0 18px 34px rgba(0, 0, 0, 0.32),
-      0 0 28px rgba(28, 111, 225, 0.2),
-      inset 0 1px rgba(255, 255, 255, 0.7);
+    filter:
+      drop-shadow(0 15px 20px rgba(0, 0, 0, 0.45))
+      drop-shadow(0 0 18px rgba(20, 100, 220, 0.22));
   }
 
   .club-name {
