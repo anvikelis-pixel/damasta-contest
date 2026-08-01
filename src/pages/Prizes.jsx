@@ -56,25 +56,11 @@ function Prizes() {
                 className="prize-number"
                 aria-label={`Δώρο αριθμός ${prize.number}`}
               >
-                {String(prize.number).padStart(3, "0")}
+                {prize.number}
               </span>
 
-              <div
-                className={`prize-icon ${
-                  prize.image ? "prize-icon-image" : ""
-                }`}
-                aria-hidden={!prize.image}
-              >
-                {prize.image ? (
-                  <img
-                    src={prize.image}
-                    alt={`Λογότυπο ${prize.sponsor}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <span className="prize-default-mark">✦</span>
-                )}
+              <div className="prize-icon" aria-hidden="true">
+                <span className="prize-default-mark">✦</span>
               </div>
 
               <div className="prize-main">
@@ -109,8 +95,14 @@ function Prizes() {
 
           <div>
             <p>Αθλητικός Όμιλος Δαμάστας</p>
-            <h2>Ευχαριστούμε όλους τους χορηγούς</h2>
-            <span>που στηρίζουν τον Α.Ο. Δαμάστας.</span>
+
+            <h2>
+              Ευχαριστούμε όλους τους χορηγούς
+            </h2>
+
+            <span>
+              που στηρίζουν τον Α.Ο. Δαμάστας.
+            </span>
           </div>
         </section>
       </main>
