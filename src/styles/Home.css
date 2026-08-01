@@ -11,22 +11,44 @@ body,
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
   background: #06172d;
 }
 
+img {
+  max-width: 100%;
+}
+
 .home-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #06172d;
+}
+
+/* ========================================
+   HERO
+======================================== */
+
+.home-hero {
   position: relative;
+  isolation: isolate;
 
   display: flex;
   width: 100%;
   min-height: 100vh;
+  min-height: 100svh;
   align-items: center;
   justify-content: center;
 
   overflow: hidden;
-  isolation: isolate;
+  padding: 110px 18px 60px;
 }
 
 .field-background {
@@ -50,14 +72,14 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(1, 10, 25, 0.3) 0%,
-      rgba(4, 20, 42, 0.42) 45%,
-      rgba(2, 10, 24, 0.82) 100%
+      rgba(1, 10, 25, 0.2) 0%,
+      rgba(4, 20, 42, 0.4) 45%,
+      rgba(2, 10, 24, 0.9) 100%
     ),
     radial-gradient(
       circle at center,
-      rgba(16, 89, 180, 0.08),
-      transparent 55%
+      rgba(16, 89, 180, 0.1),
+      transparent 58%
     );
 }
 
@@ -66,11 +88,9 @@ body {
   z-index: 2;
 
   display: flex;
-  width: min(900px, calc(100% - 36px));
+  width: min(900px, 100%);
   flex-direction: column;
   align-items: center;
-
-  padding: 45px 24px;
 
   text-align: center;
 
@@ -78,8 +98,9 @@ body {
 }
 
 .damasta-logo {
-  width: clamp(170px, 19vw, 270px);
-  max-height: 290px;
+  display: block;
+  width: clamp(155px, 18vw, 250px);
+  max-height: 275px;
 
   object-fit: contain;
 
@@ -89,9 +110,7 @@ body {
 
   animation: logoFloat 5s ease-in-out infinite;
 
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
 .damasta-logo:hover {
@@ -101,60 +120,62 @@ body {
 }
 
 .club-name {
-  margin-top: 16px;
+  margin-top: 15px;
 
   color: #a9ceff;
 
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+
+  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.8);
 }
 
 .hero-content h1 {
-  margin-top: 14px;
+  margin-top: 12px;
 
   color: #ffffff;
 
-  font-size: clamp(3.6rem, 10vw, 7.5rem);
+  font-size: clamp(3.4rem, 10vw, 7.3rem);
   font-weight: 900;
   line-height: 0.95;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 
   text-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.65),
-    0 0 22px rgba(10, 100, 225, 0.18);
+    0 10px 30px rgba(0, 0, 0, 0.68),
+    0 0 22px rgba(10, 100, 225, 0.2);
 }
 
 .raffle-title {
-  margin-top: 23px;
+  margin-top: 22px;
 
   color: #ffffff;
 
-  font-size: clamp(1.3rem, 3.2vw, 2.2rem);
-  font-weight: 600;
+  font-size: clamp(1.25rem, 3vw, 2.1rem);
+  font-weight: 700;
 
-  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
 }
 
 .raffle-date {
-  margin-top: 15px;
+  margin-top: 13px;
 
-  color: #d7e8ff;
+  color: #c6ddfb;
 
-  font-size: clamp(1rem, 2.1vw, 1.35rem);
+  font-size: clamp(0.95rem, 2vw, 1.3rem);
   font-weight: 500;
 
-  text-shadow: 0 5px 16px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 5px 16px rgba(0, 0, 0, 0.8);
 }
 
 .prizes-link {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
+  gap: 17px;
 
-  margin-top: 36px;
-  padding: 17px 21px 17px 29px;
+  margin-top: 31px;
+  padding: 15px 18px 15px 26px;
 
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 15px;
@@ -164,15 +185,15 @@ body {
   background:
     linear-gradient(
       135deg,
-      #167fee,
-      #064fae
+      #1684f4,
+      #0754b7
     );
 
   box-shadow:
-    0 17px 40px rgba(0, 77, 180, 0.45),
+    0 17px 40px rgba(0, 77, 180, 0.46),
     inset 0 1px rgba(255, 255, 255, 0.3);
 
-  font-size: 1rem;
+  font-size: 0.94rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-decoration: none;
@@ -186,15 +207,15 @@ body {
 
 .arrow {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 37px;
+  height: 37px;
   place-items: center;
 
   border-radius: 10px;
 
   background: rgba(255, 255, 255, 0.15);
 
-  font-size: 1.4rem;
+  font-size: 1.35rem;
 
   transition: transform 0.3s ease;
 }
@@ -211,6 +232,120 @@ body {
 .prizes-link:hover .arrow {
   transform: translateX(5px);
 }
+
+/* ========================================
+   POSTER SECTION
+======================================== */
+
+.poster-section {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 72px 18px 80px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(26, 111, 225, 0.15),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      #06172d 0%,
+      #040c18 100%
+    );
+}
+
+.poster-heading {
+  width: min(800px, 100%);
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+.poster-heading p {
+  color: #79b8fa;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.poster-heading h2 {
+  margin-top: 10px;
+
+  color: #ffffff;
+
+  font-size: clamp(1.65rem, 4vw, 2.8rem);
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.poster-wrapper {
+  width: min(980px, 100%);
+  overflow: hidden;
+
+  border: 1px solid rgba(125, 187, 255, 0.2);
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 75px rgba(0, 0, 0, 0.46),
+    0 0 40px rgba(22, 127, 238, 0.1);
+}
+
+.damasta-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.poster-prizes-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-top: 31px;
+  padding: 14px 22px;
+
+  border: 1px solid rgba(125, 187, 255, 0.24);
+  border-radius: 13px;
+
+  color: #ffffff;
+
+  background: rgba(14, 72, 138, 0.48);
+
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.poster-prizes-link:hover {
+  transform: translateY(-3px);
+  background: rgba(18, 100, 195, 0.64);
+}
+
+.poster-prizes-link span {
+  font-size: 1.15rem;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
 
 @keyframes cinematicField {
   0% {
@@ -229,7 +364,7 @@ body {
   }
 
   50% {
-    transform: translateY(-13px) rotate(0.6deg);
+    transform: translateY(-12px) rotate(0.6deg);
   }
 }
 
@@ -247,49 +382,137 @@ body {
   }
 }
 
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .home-hero {
+    padding-top: 100px;
+  }
+
+  .poster-section {
+    padding-top: 60px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
 @media (max-width: 600px) {
+  .home-hero {
+    min-height: 100svh;
+    padding: 86px 12px 36px;
+  }
+
+  .field-background {
+    inset: -25px;
+    background-position: center;
+  }
+
   .hero-content {
-    padding: 30px 18px;
+    width: 100%;
   }
 
   .damasta-logo {
-    width: 185px;
+    width: 145px;
 
     filter:
-      drop-shadow(0 15px 20px rgba(0, 0, 0, 0.45))
-      drop-shadow(0 0 18px rgba(20, 100, 220, 0.22));
+      drop-shadow(0 14px 20px rgba(0, 0, 0, 0.45))
+      drop-shadow(0 0 17px rgba(20, 100, 220, 0.22));
   }
 
   .club-name {
-    font-size: 0.6rem;
+    margin-top: 12px;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
   }
 
   .hero-content h1 {
     margin-top: 10px;
+    font-size: clamp(2.8rem, 15vw, 4.2rem);
+    letter-spacing: 0.035em;
   }
 
   .raffle-title {
-    margin-top: 17px;
+    margin-top: 16px;
+    font-size: 1.22rem;
   }
 
   .raffle-date {
-    margin-top: 11px;
+    margin-top: 10px;
+    font-size: 0.9rem;
   }
 
   .prizes-link {
-    margin-top: 27px;
-    padding: 14px 16px 14px 21px;
-
-    font-size: 0.79rem;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 12px 13px 12px 18px;
+    border-radius: 13px;
+    font-size: 0.72rem;
   }
 
   .arrow {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 1.15rem;
+  }
+
+  .poster-section {
+    padding: 44px 0 55px;
+  }
+
+  .poster-heading {
+    width: calc(100% - 28px);
+    margin-bottom: 22px;
+  }
+
+  .poster-heading p {
+    font-size: 0.56rem;
+  }
+
+  .poster-heading h2 {
+    margin-top: 8px;
+    font-size: 1.55rem;
+  }
+
+  .poster-wrapper {
+    width: calc(100% - 16px);
+    border-radius: 14px;
+  }
+
+  .poster-prizes-link {
+    margin-top: 24px;
+    padding: 12px 17px;
+    font-size: 0.7rem;
   }
 }
 
+@media (max-width: 380px) {
+  .damasta-logo {
+    width: 132px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.7rem;
+  }
+
+  .raffle-title {
+    font-size: 1.08rem;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .field-background,
   .damasta-logo,
   .hero-content {

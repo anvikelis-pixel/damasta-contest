@@ -1,35 +1,38 @@
 .navbar {
   position: fixed;
-  top: 18px;
+  top: 17px;
   left: 50%;
   z-index: 1000;
 
   display: flex;
   width: min(1180px, calc(100% - 36px));
-  min-height: 64px;
+  min-height: 62px;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0;
-
   transform: translateX(-50%);
 
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  pointer-events: none;
 
   animation: navbarEntrance 0.8s ease both;
+}
+
+.navbar-brand,
+.navbar-menu,
+.menu-button {
+  pointer-events: auto;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
+
   color: #ffffff;
   text-decoration: none;
 }
 
 .navbar-brand img {
+  display: block;
   width: 54px;
   height: 54px;
   padding: 3px;
@@ -37,36 +40,32 @@
   object-fit: contain;
 
   background: #ffffff;
-  border-radius: 3px;
+  border-radius: 6px;
 
   box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.32),
-    0 0 0 1px rgba(255, 255, 255, 0.12);
-
-  filter:
-    contrast(1.05)
-    saturate(1.05);
+    0 10px 24px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(255, 255, 255, 0.16);
 }
 
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
 .navbar-menu > a {
   position: relative;
 
-  padding: 12px 15px;
+  padding: 11px 14px;
   border-radius: 10px;
 
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.82);
 
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 750;
   text-decoration: none;
 
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 
   transition:
     color 0.25s ease,
@@ -76,7 +75,7 @@
 
 .navbar-menu > a:not(.navbar-action):hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .navbar-action {
@@ -84,8 +83,8 @@
   align-items: center;
   gap: 12px;
 
-  margin-left: 6px;
-  padding: 14px 20px !important;
+  margin-left: 5px;
+  padding: 13px 18px !important;
 
   color: #ffffff !important;
 
@@ -97,8 +96,8 @@
     );
 
   box-shadow:
-    0 12px 28px rgba(0, 86, 196, 0.38),
-    inset 0 1px rgba(255, 255, 255, 0.2);
+    0 12px 28px rgba(0, 86, 196, 0.4),
+    inset 0 1px rgba(255, 255, 255, 0.22);
 
   text-shadow: none !important;
 }
@@ -115,8 +114,7 @@
 }
 
 .navbar-action span {
-  font-size: 1.15rem;
-
+  font-size: 1.1rem;
   transition: transform 0.25s ease;
 }
 
@@ -133,20 +131,25 @@
   justify-content: center;
   gap: 5px;
 
+  padding: 0;
+
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 12px;
 
-  background: rgba(4, 17, 39, 0.72);
+  background: rgba(4, 17, 39, 0.78);
 
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.06);
 
   cursor: pointer;
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .menu-button span {
+  display: block;
   width: 19px;
   height: 2px;
 
@@ -184,15 +187,16 @@
 
 @media (max-width: 720px) {
   .navbar {
-    top: 12px;
-    width: calc(100% - 24px);
-    min-height: 56px;
+    top: 10px;
+    width: calc(100% - 20px);
+    min-height: 52px;
   }
 
   .navbar-brand img {
-    width: 48px;
-    height: 48px;
-    padding: 3px;
+    width: 46px;
+    height: 46px;
+    padding: 2px;
+    border-radius: 6px;
   }
 
   .menu-button {
@@ -201,23 +205,23 @@
 
   .navbar-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 9px);
     right: 0;
 
     display: flex;
-    width: min(280px, 100%);
+    width: min(270px, calc(100vw - 20px));
     flex-direction: column;
     align-items: stretch;
     gap: 5px;
 
     padding: 10px;
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.13);
     border-radius: 16px;
 
-    background: rgba(4, 17, 39, 0.94);
+    background: rgba(4, 17, 39, 0.96);
 
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
 
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
@@ -242,12 +246,12 @@
 
   .navbar-menu > a {
     width: 100%;
-    padding: 14px 15px;
+    padding: 13px 14px;
   }
 
   .navbar-action {
     justify-content: space-between;
-    margin-left: 0;
     margin-top: 3px;
+    margin-left: 0;
   }
 }
