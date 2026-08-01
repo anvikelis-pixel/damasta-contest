@@ -239,13 +239,15 @@ img {
 
 .poster-section {
   position: relative;
+  z-index: 5;
 
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
 
-  padding: 72px 18px 80px;
+  margin-top: -90px;
+  padding: 50px 18px 80px;
 
   background:
     radial-gradient(
@@ -308,41 +310,6 @@ img {
   object-fit: contain;
 }
 
-.poster-prizes-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-
-  margin-top: 31px;
-  padding: 14px 22px;
-
-  border: 1px solid rgba(125, 187, 255, 0.24);
-  border-radius: 13px;
-
-  color: #ffffff;
-
-  background: rgba(14, 72, 138, 0.48);
-
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease;
-}
-
-.poster-prizes-link:hover {
-  transform: translateY(-3px);
-  background: rgba(18, 100, 195, 0.64);
-}
-
-.poster-prizes-link span {
-  font-size: 1.15rem;
-}
-
 /* ========================================
    ANIMATIONS
 ======================================== */
@@ -392,7 +359,8 @@ img {
   }
 
   .poster-section {
-    padding-top: 60px;
+    margin-top: -75px;
+    padding-top: 45px;
   }
 }
 
@@ -461,11 +429,12 @@ img {
   }
 
   .poster-section {
-    padding: 44px 0 55px;
+    margin-top: -65px;
+    padding: 35px 12px 55px;
   }
 
   .poster-heading {
-    width: calc(100% - 28px);
+    width: calc(100% - 12px);
     margin-bottom: 22px;
   }
 
@@ -479,14 +448,8 @@ img {
   }
 
   .poster-wrapper {
-    width: calc(100% - 16px);
+    width: 100%;
     border-radius: 14px;
-  }
-
-  .poster-prizes-link {
-    margin-top: 24px;
-    padding: 12px 17px;
-    font-size: 0.7rem;
   }
 }
 
@@ -501,6 +464,10 @@ img {
 
   .raffle-title {
     font-size: 1.08rem;
+  }
+
+  .poster-section {
+    margin-top: -55px;
   }
 }
 
