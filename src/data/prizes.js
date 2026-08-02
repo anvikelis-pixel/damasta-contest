@@ -2484,6 +2484,27 @@ const prizes = [
     title: "1 ΠΑΙΔΙΚΗ ΕΠΕΤΕΙΑΚΗ ΦΑΝΕΛΑ",
     image: null,
   },
+  {
+  id: 356,
+  number: 356,
+  sponsor: "ΓΡΗΓΟΡΟΠΟΥΛΟΣ",
+  title: "1 ΕΠΕΤΕΙΑΚΗ ΦΑΝΕΛΑ",
+  image: null,
+},
+{
+  id: 357,
+  number: 357,
+  sponsor: "ΓΙΩΡΓΟΣ & ΜΑΛΑΦΟΥΡΗΣ",
+  title: "1 ΚΙΘΑΡΑ / ΜΠΑΓΛΑΜΑΣ",
+  image: null,
+},
+{
+  id: 358,
+  number: 358,
+  sponsor: "LOULIS",
+  title: "25 ΚΙΛΑ ΑΛΕΥΡΙ",
+  image: null,
+},
 ];
 
 export default prizes;
